@@ -4,7 +4,7 @@ public class Mediciones {
 	
 	//Atributos
 	private String nombre;
-	private String tipo;
+	private TipoDeMedicion tipo;
 	private double valor;
 	 
 	
@@ -18,11 +18,11 @@ public class Mediciones {
 		this.nombre = nombre;
 	}
 	
-	public String getTipo(){
+	public TipoDeMedicion getTipo(){
 		return this.tipo;
 	}
 	
-	public void setTipo(String tipo){
+	public void setTipo(TipoDeMedicion tipo){
 		this.tipo = tipo;
 	}
 	
