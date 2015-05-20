@@ -1,5 +1,5 @@
 package entidades;
 
 public enum TipoDeMedicion {
-	TEMPERATURA,RPM
+	TEMPERATURA,RPM,
 }
