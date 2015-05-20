@@ -1,6 +1,10 @@
 package DAO;
 
-public class MedicionesDAO {
-	public void insertarDatos(Datos datos);
+import entidades.Mediciones;
+
+public interface MedicionesDAO {
+	public void insertarDatos(Mediciones mediciones);
+	public void borrarDatos(Mediciones mediciones);
+	public void actualizarDatos(Mediciones mediciones);
 	
 }

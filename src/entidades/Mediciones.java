@@ -4,10 +4,7 @@ public class Mediciones {
 	private String nombre;
 	private String tipo;
 	private double valor;
-	
-	
-	
-	
+	 
 	
 	// Metodos
 	
