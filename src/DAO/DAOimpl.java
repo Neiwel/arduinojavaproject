@@ -12,7 +12,7 @@ public class DAOimpl implements MedicionesDAO {
 
 	@Override
 	public void insertarDatos(Mediciones mediciones) throws MedicionesException {
-		String sql = "INSERT INTO usuarios (user, email, pass) VALUES ('" + mediciones.getNombre() + "', '" + mediciones.getTipo() + "', '" + mediciones.getValor() + "')";
+		String sql = "INSERT INTO mediciones (nombre, tipo, valor) VALUES ('" + mediciones.getNombre() + "', '" + mediciones.getTipo() + "', '" + mediciones.getValor() + "')";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
@@ -40,7 +40,7 @@ public class DAOimpl implements MedicionesDAO {
 
 	@Override
 	public void borrarDatos(Mediciones mediciones) throws MedicionesException {
-		String sql = "DELETE FROM usuarios WHERE user = '" + mediciones.getNombre() + "'";
+		String sql = "DELETE FROM mediciones WHERE nombre = '" + mediciones.getNombre() + "'";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
@@ -67,7 +67,7 @@ public class DAOimpl implements MedicionesDAO {
 
 	@Override
 	public void actualizarDatos(Mediciones mediciones) throws MedicionesException {
-		String sql = "UPDATE usuarios set email = '" + mediciones.getNombre() + "', pass = '" + mediciones.getTipo() + "' WHERE user = '" + mediciones.getValor() + "'";
+		String sql = "UPDATE mediciones set nombre = '" + mediciones.getNombre() + "', tipo = '" + mediciones.getTipo() + "' WHERE valor = '" + mediciones.getValor() + "'";
 		Connection c = DBManager.connect();
 		try {
 			Statement s = c.createStatement();
@@ -79,7 +79,7 @@ public class DAOimpl implements MedicionesDAO {
 				e.printStackTrace();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
-				throw new MedicionesException("Error al actualizar usuario.");
+				throw new MedicionesException("Error al actualizar datos.");
 			}
 		} finally {
 			try {
