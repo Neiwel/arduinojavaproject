@@ -39,14 +39,56 @@ public class DAOimpl implements MedicionesDAO {
 	}
 
 	@Override
-	public void borrarDatos(Mediciones mediciones) {
-		// TODO Auto-generated method stub
+	public void borrarDatos(Mediciones mediciones) throws MedicionesException {
+		String sql = "DELETE FROM usuarios WHERE user = '" + mediciones.getNombre() + "'";
+		Connection c = DBManager.connect();
+		try {
+			Statement s = c.createStatement();
+			s.executeUpdate(sql);
+			c.commit();
+		} catch (SQLException e) {
+			try {
+				c.rollback();
+				e.printStackTrace();	// Tirar el error para arriba
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+				throw new MedicionesException("Error al borrar medicion...");
+			}
+		} finally {
+			try {
+				c.close();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+				throw new MedicionesException("Error al cerrar base de datos...");
+			}
+		}
 		
 	}
 
 	@Override
-	public void actualizarDatos(Mediciones mediciones) {
-		// TODO Auto-generated method stub
+	public void actualizarDatos(Mediciones mediciones) throws MedicionesException {
+		String sql = "UPDATE usuarios set email = '" + mediciones.getNombre() + "', pass = '" + mediciones.getTipo() + "' WHERE user = '" + mediciones.getValor() + "'";
+		Connection c = DBManager.connect();
+		try {
+			Statement s = c.createStatement();
+			s.executeUpdate(sql);
+			c.commit();
+		} catch (SQLException e) {
+			try {
+				c.rollback();
+				e.printStackTrace();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+				throw new MedicionesException("Error al actualizar usuario.");
+			}
+		} finally {
+			try {
+				c.close();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+				throw new MedicionesException("Error al cerrar base de datos...");
+			}
+		}
 		
 	}
 
