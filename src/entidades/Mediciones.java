@@ -1,6 +1,8 @@
 package entidades;
 
 public class Mediciones {
+	
+	//Atributos
 	private String nombre;
 	private String tipo;
 	private double valor;
@@ -16,7 +18,7 @@ public class Mediciones {
 		this.nombre = nombre;
 	}
 	
-	public String getTipo(String tipo){
+	public String getTipo(){
 		return this.tipo;
 	}
 	
@@ -24,7 +26,7 @@ public class Mediciones {
 		this.tipo = tipo;
 	}
 	
-	public Double getValor(double valor){
+	public Double getValor(){
 		return this.valor;
 	}
 	
