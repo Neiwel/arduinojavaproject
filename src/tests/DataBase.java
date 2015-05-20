@@ -9,7 +9,7 @@ public class DataBase {
 
 	@BeforeClass
 	public void crearMedicion(){
-		System.out.println("hola!");
+		System.out.println("hola!");;
 	}
 	
 	@Test
