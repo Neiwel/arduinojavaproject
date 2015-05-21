@@ -1,7 +1,9 @@
 package handler;
 
 import BO.MedicionesBO;
+
 import UI.FramePrincipal;
+import UI.PanelMediciones;
 
 public class Handler {
 	//Atributos
@@ -17,6 +19,11 @@ public class Handler {
 	//Metodos
 	public void init() {
 		frame.setVisible(true);
+	}
+	
+	//Cambiar Frame
+	public void consultaMediciones() {
+		frame.cambiarPanel(new PanelMediciones(this));
 	}
 	
 	

@@ -1,13 +1,18 @@
 package UI;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import handler.Handler;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+
+
 
 public class FramePrincipal extends JFrame {
 	//Atributos
@@ -41,7 +46,24 @@ public class FramePrincipal extends JFrame {
 		fileMenu1.add(menuGrafico);
 		menuBar.add(fileMenu1);
 		
+		
+		//Listener
+		menuMediciones.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				handler.consultaMediciones();
+			}
+		});
+		
+		
+		
 		return menuBar;
+	}
+	
+	public void cambiarPanel(JComponent component) {
+		getContentPane().removeAll();
+		getContentPane().add(BorderLayout.CENTER, component);
+		getContentPane().validate();
 	}
 	
 }
